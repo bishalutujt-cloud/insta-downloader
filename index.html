@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Instagram Video Downloader - Insta Pro Official | Download Reels in HD</title>
 <meta name="description" content="Insta Pro Official Instagram Video Downloader - Download Reels & Videos in HD Free.">
+<meta name="google-site-verification" content="hq96anhqvcZsRYUuxO0LxM9r6nBhfSg3EykDfk-IEMU" />
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
 body { background: #f0f2f5; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 15px; }
@@ -13,7 +14,7 @@ h2 { color: #1c2b46; font-size: 22px; margin-bottom: 8px; }
 p.sub { color: #65676b; font-size: 13px; margin-bottom: 20px; }
 input { width: 100%; padding: 14px; border: 1.5px solid #e4e6eb; border-radius: 10px; font-size: 14px; outline: none; }
 input:focus { border-color: #0084ff; }
-button { width: 100%; padding: 14px; background: #0084ff; color: #fff; border: none; border-radius: 10px; font-size: 15px; margin-top: 12px; cursor: pointer; font-weight: bold; }
+button { width: 100%; padding: 14px; background: #0084ff; color: #fff; border: none; border-radius: 10px; font-size: 15px; margin-top: 10px; cursor: pointer; }
 button:hover { background: #0073e6; }
 #result { margin-top: 18px; }
 .error { color: #ef4444; font-size: 13px; text-align: center; }
@@ -33,19 +34,19 @@ button:hover { background: #0073e6; }
 
 <script>
 function getDownloadLink() {
-    let url = document.getElementById("instaUrl").value.trim();
-    let res = document.getElementById("result");
+  let url = document.getElementById("instaUrl").value.trim();
+  let res = document.getElementById("result");
 
-    if (!url) {
-        res.innerHTML = '<p class="error">⚠️ Pehle link paste karein!</p>';
-        return;
-    }
+  if (!url) {
+    res.innerHTML = '<p class="error">⚠️ Pehle link paste karein!</p>';
+    return;
+  }
 
-    res.innerHTML = `
-        <p style="font-size:13px; color:#10b981; margin-bottom:10px; font-weight:bold;">✅ Video Ready!</p>
-        <a href="https://cobalt.tools/" target="_blank" style="display:block; padding:12px; background:#10b981; color:#fff; text-align:center; border-radius:8px; text-decoration:none; font-weight:bold;">🔗 Open Downloader Server</a>
-        <p style="font-size:11px; color:#888; margin-top:10px;">Naye tab me link paste karke 1-click me video save karein.</p>
-    `;
+  res.innerHTML = `
+    <p style="font-size:13px; color:#10b981; margin-bottom:10px; font-weight:bold;">✅ Video Ready!</p>
+    <a href="https://cobalt.tools/" target="_blank" style="display:block; padding:12px; background:#10b981; color:#fff; text-align:center; border-radius:8px; text-decoration:none; font-weight:bold;">Open Downloader & Paste Link</a>
+    <p style="font-size:11px; color:#888; margin-top:10px;">Naye tab me link paste karke 1-click me video save kare.</p>
+  `;
 }
 </script>
 
