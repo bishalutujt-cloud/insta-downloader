@@ -1,53 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insta Video Downloader - No Login</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:15px}
-.box{background:#fff;width:100%;max-width:420px;padding:25px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,0.2);text-align:center}
-h2{margin-bottom:10px}
-p.sub{color:#666;font-size:13px;margin-bottom:15px}
-input{width:100%;padding:14px;border:2px solid #ddd;border-radius:10px;font-size:14px}
-button{width:100%;margin-top:12px;padding:14px;background:#e1306c;color:#fff;border:0;border-radius:10px;font-size:16px;font-weight:bold;cursor:pointer}
-#result{margin-top:20px}
-.success{color:green;font-weight:bold}
-.btn{display:block;width:100%;padding:14px;margin-top:10px;border-radius:10px;text-decoration:none;color:#fff;font-weight:bold}
-.btn1{background:#000}
-.btn2{background:#444}
-.error{color:red;font-size:14px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insta Video Downloader</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body { background: #f0f2f5; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 15px; }
+    .card { background: #ffffff; padding: 25px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); width: 100%; max-width: 420px; text-align: center; }
+    h2 { color: #1c2b46; font-size: 22px; margin-bottom: 8px; }
+    p.sub { color: #65676b; font-size: 13px; margin-bottom: 20px; }
+    input { width: 100%; padding: 14px; border: 1.5px solid #e4e6eb; border-radius: 10px; font-size: 14px; outline: none; margin-bottom: 12px; }
+    input:focus { border-color: #0084ff; }
+    button { width: 100%; padding: 14px; background: #0084ff; color: #fff; border: none; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+    button:hover { background: #0073e6; }
+    #result { margin-top: 18px; text-align: left; }
+    .dl-btn { display: block; width: 100%; padding: 12px; margin-top: 10px; text-align: center; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; }
+    .btn-main { background: #10b981; color: white; }
+    .btn-backup { background: #6b7280; color: white; }
+    .error { color: #ef4444; font-size: 13px; text-align: center; }
+  </style>
 </head>
 <body>
-<div class="box">
-<h2>📥 Insta Downloader</h2>
-<p class="sub">Reels, Video, Story - No Login Required</p>
-<input id="instaUrl" placeholder="Paste Instagram link here...">
-<button onclick="downloadNow()">Download Now</button>
-<div id="result"></div>
-</div>
 
-<script>
-function downloadNow(){
-  let url = document.getElementById('instaUrl').value.trim();
-  let res = document.getElementById('result');
-  if(!url){ res.innerHTML='<p class=error>❌ Pehle link paste karo</p>'; return; }
-  
-  // Convert to ddinstagram - works without any hosting/backend
-  let ddLink = url.replace('https://www.instagram.com','https://ddinstagram.com').replace('https://instagram.com','https://ddinstagram.com').replace('http://www.instagram.com','https://ddinstagram.com').replace('www.instagram.com','ddinstagram.com').replace('instagram.com','ddinstagram.com');
-  
-  res.innerHTML = `
-    <p class=success>✅ Ready Hai Bhai!</p>
-    <a class="btn btn1" href="${ddLink}" target="_blank">⬇️ Server 1 - Direct Download</a>
-    <a class="btn btn2" href="https://savegram.app/en#url=${encodeURIComponent(url)}" target="_blank">Server 2 - Backup</a>
-    <p style="font-size:11px;color:#666;margin-top:10px">Server 1 khule to video par 3 dot ( ⋮ ) pe click karke Download karo</p>
-  `;
-}
-</script>
+  <div class="card">
+    <h2>📥 Insta Downloader</h2>
+    <p class="sub">Reels & Videos Downloader - Fast & Easy</p>
+    
+    <input type="text" id="instaUrl" placeholder="Paste Instagram Link Here...">
+    <button onclick="getDownloadLink()">Download Video</button>
+    
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function getDownloadLink() {
+      let url = document.getElementById("instaUrl").value.trim();
+      let res = document.getElementById("result");
+
+      if (!url) {
+        res.innerHTML = '<p class="error">⚠️ Pehle link paste karein!</p>';
+        return;
+      }
+
+      // Convert URL for instant direct download
+      let ddUrl = url.replace('instagram.com', 'ddinstagram.com');
+      let CobaltUrl = "https://cobalt.tools/"; // Fast backup option
+
+      res.innerHTML = `
+        <a class="dl-btn btn-main" href="${ddUrl}" target="_blank">🚀 Direct Download (Server 1)</a>
+        <a class="dl-btn btn-backup" href="${CobaltUrl}" target="_blank">🔄 Backup Download (Server 2)</a>
+        <p style="font-size:11px; color:#888; margin-top:10px; text-align:center;">
+          Note: Page khulne par 3 dots (⋮) pe click karke Download kar sakte hain.
+        </p>
+      `;
+    }
+  </script>
+
 </body>
 </html>
-    
-  
-
